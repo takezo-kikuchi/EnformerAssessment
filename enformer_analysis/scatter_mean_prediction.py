@@ -1,12 +1,14 @@
 # Generate a scatter plot between predicted and observed expression values
 
+import os
+print("Current Working Directory:", os.getcwd())
 import numpy as np
 import sys, os
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from scipy.stats import gaussian_kde, pearsonr
 
-pred = np.genfromtxt('MeanGeXPredFineTuned.txt', dtype = str, skip_header = 1)
+pred = np.genfromtxt('Data\MeanGeXPredFineTuned.txt', dtype = str, skip_header = 1)
 genes, measured, predicted = pred[:,0], pred[:,1].astype(float), pred[:,2].astype(float)
 
 outname = 'MeanExpression_to_referencePrediction_scatter.jpg'
